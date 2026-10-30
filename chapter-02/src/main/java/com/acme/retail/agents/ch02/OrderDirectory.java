@@ -1,0 +1,20 @@
+package com.acme.retail.agents.ch02;
+
+import org.springframework.stereotype.Service;
+
+import java.util.Map;
+import java.util.Optional;
+
+/** Carried over from Chapter 1 -- stands in for the real orders table. */
+@Service
+public class OrderDirectory {
+
+    private final Map<String, OrderRecord> ordersById = Map.of(
+            "ORD-7731", new OrderRecord("ORD-7731", "jane@example.com", "SHIPPED"),
+            "ORD-9042", new OrderRecord("ORD-9042", "raj@example.com", "PROCESSING")
+    );
+
+    public Optional<OrderRecord> findById(String orderId) {
+        return Optional.ofNullable(ordersById.get(orderId));
+    }
+}

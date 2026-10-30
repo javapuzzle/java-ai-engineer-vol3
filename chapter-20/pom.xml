@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.4</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.acme.retail.agents</groupId>
+    <artifactId>chapter-20</artifactId>
+    <version>1.0.0</version>
+    <name>chapter-20-volume-3-capstone-autonomous-ops-agent</name>
+    <description>
+        Volume 3 Capstone -- Acme Retail's Autonomous Ops Agent. Composes
+        every mechanism this volume built: narrow-scope monitor specialists
+        (Ch.15), a guardrail that blocks an autonomous action outside any
+        agent's own reasoning (Ch.18), a connected trace across every
+        agent and decision (Ch.19), and an MCP-exposed capability
+        (Ch.11-14's hand-written protocol stand-in) -- to monitor Acme's
+        own operations and act within its guardrails, escalating to a
+        human the moment its own limits say it must. The capstone incident
+        deliberately exercises the same "composition doesn't inherit
+        correctness" lesson as volume2_1 Ch.20, now at multi-agent scale:
+        two monitor specialists independently flagging the same SKU leads
+        the orchestrator to attempt a second reorder that the guardrail
+        was never told to expect, and blocks anyway.
+    </description>
+
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
